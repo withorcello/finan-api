@@ -12,6 +12,6 @@ import { DespesaRoutes } from './despesa/despesa.routes';
  */
 export function registerRoutes(router: Router, prefix: string = ''): void {
   router.use(`${prefix}`, new BaseRoutes().routes());
-  // router.use(`${prefix}/users`, new UserRoutes().routes());
+  router.use(`${prefix}/users`, new UserRoutes().routes());
   router.use(`${prefix}/despesas`, new DespesaRoutes().routes());
 }
