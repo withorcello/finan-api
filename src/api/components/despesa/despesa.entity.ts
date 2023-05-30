@@ -14,10 +14,16 @@ export class Despesa {
   @Column()
   data_efetivacao!: Date;
 
-  @Column()
+  @Column({
+    type: 'decimal',
+    transformer: {
+      to(value: any) { return value },
+      from(value: any) { return parseFloat(value) }
+    }
+  })
   valor!: number;
 
-  @Column()
+  @Column({ type: 'decimal' })
   valor_pago!: number;
 
   @Column()
