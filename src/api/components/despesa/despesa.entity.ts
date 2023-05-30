@@ -15,7 +15,7 @@ export class Despesa {
   data_efetivacao!: Date;
 
   @Column({
-    type: 'decimal',
+    type: 'decimal', 
     transformer: {
       to(value: any) { return value },
       from(value: any) { return parseFloat(value) }
@@ -23,7 +23,13 @@ export class Despesa {
   })
   valor!: number;
 
-  @Column({ type: 'decimal' })
+  @Column({ 
+    type: 'decimal',
+    transformer: {
+      to(value: any) { return value },
+      from(value: any) { return parseFloat(value) }
+    }
+   })
   valor_pago!: number;
 
   @Column()

@@ -14,19 +14,19 @@ export class DespesaController {
     
     //aqui que pegamos o dados para cadastrar uma nova despesa
     
-    let descricao = req.body.descricao;
-    let valor = req.body.valor;
-    let data = req.body.data;
+    // let descricao = req.body.descricao;
+    // let valor = req.body.valor;
+    // let data = req.body.data;
 
-    // let { descricao, valor, data } = req.body;
+    let { descricao, valor, data } = req.body;
 
     let desp = new Despesa();
     desp.descricao = descricao;
     desp.data = data;
     desp.valor = valor;
 
-    const despesa_salva = await AppDataSource.manager.save(desp);
+    const _despesa = await AppDataSource.manager.save(desp);
 
-    res.status(201).json(despesa_salva);
+    res.status(201).json(_despesa);
   }
 }
