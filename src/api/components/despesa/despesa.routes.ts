@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import { DespesaController } from './despesa.controller';
+import { Router } from "express";
+import { DespesaController } from "./despesa.controller";
 
 export class DespesaRoutes {
   private router: Router = Router();
@@ -12,8 +12,11 @@ export class DespesaRoutes {
   }
 
   private init(): void {
-    this.router.get('/', this.controller.list);
-    // this.router.get('/info', this.controller.info);
+    this.router.get("/", this.controller.findAll);
+    this.router.get("/:id", this.controller.findOne);
+    this.router.post("/", this.controller.create);
+    this.router.patch("/:id", this.controller.update);
+    this.router.delete("/:id", this.controller.delete);
   }
 
   public routes(): Router {

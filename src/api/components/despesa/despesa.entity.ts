@@ -1,6 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('despesas')
+@Entity("despesas")
 export class Despesa {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -8,18 +8,18 @@ export class Despesa {
   @Column()
   descricao!: string;
 
-  @Column()
+  @Column("date")
   data!: Date;
 
-  @Column()
+  @Column("date")
   data_efetivacao!: Date;
 
-  @Column()
+  @Column("decimal")
   valor!: number;
 
-  @Column()
+  @Column("decimal")
   valor_pago!: number;
 
-  @Column()
+  @Column("boolean")
   pago!: boolean;
 }
